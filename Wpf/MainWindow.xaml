@@ -1,0 +1,65 @@
+﻿<Window x:Class="Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Top controls -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="5">
+            <Button Content="Open..." Width="75" Margin="5" Click="ButtonBase_OnClick"/>
+            <Label Content="Directory:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="DirectoryComboBox" Width="200" Margin="5" SelectionChanged="DirectoryComboBox_SelectionChanged"/>
+            <CheckBox x:Name="IncludeSubdirectoriesCheckBox" Content="Include subdirectories" VerticalAlignment="Center" Margin="5" Checked="IncludeSubdirectoriesCheckBox_Checked" Unchecked="IncludeSubdirectoriesCheckBox_Unchecked"/>
+        </StackPanel>
+
+        <!-- ListView -->
+        <ListView x:Name="FilesListView" Grid.Row="1" Grid.Column="0" Margin="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="File name" DisplayMemberBinding="{Binding FileName}" Width="120"/>
+                    <GridViewColumn Header="Directory" DisplayMemberBinding="{Binding Directory}" Width="120"/>
+                    <GridViewColumn Header="Size" DisplayMemberBinding="{Binding SizeReadable}" Width="80"/>
+                    <GridViewColumn Header="Created time" DisplayMemberBinding="{Binding CreatedTime}" Width="120"/>
+                    <GridViewColumn Header="Modified time" DisplayMemberBinding="{Binding ModifiedTime}" Width="120"/>
+                    <GridViewColumn Header="Read only" DisplayMemberBinding="{Binding IsReadOnly}" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Statistics Panel -->
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="5" Width="200">
+            <TextBlock Text="Statistics" FontWeight="Bold" Margin="5"/>
+            <TextBlock x:Name="FilesTextBlock" Text="Files: 0 / 0" Margin="5"/>
+            <TextBlock x:Name="DirectoriesTextBlock" Text="Directories: 0 / 0" Margin="5"/>
+            <TextBlock x:Name="TotalSizeTextBlock" Text="Total size: 0" Margin="5"/>
+            <TextBlock x:Name="CreatedNewestTextBlock" Text="Created time (newest): 0" Margin="5"/>
+            <TextBlock x:Name="CreatedOldestTextBlock" Text="Created time (oldest): 0" Margin="5"/>
+            <TextBlock x:Name="ModifiedNewestTextBlock" Text="Modified time (newest): 0" Margin="5"/>
+            <TextBlock x:Name="ModifiedOldestTextBlock" Text="Modified time (oldest): 0" Margin="5"/>
+            <TextBlock x:Name="ReadOnlyFilesTextBlock" Text="Readonly files: 0" Margin="5"/>
+            <TextBlock Text="Extension Count  Total size" FontWeight="Bold" Margin="5"/>
+            <ListView x:Name="ExtensionListView" Height="100" Margin="5">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Extension" DisplayMemberBinding="{Binding Extension}" Width="80"/>
+                        <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}" Width="60"/>
+                        <GridViewColumn Header="Total size" DisplayMemberBinding="{Binding TotalSize}" Width="80"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+
+</Window>
