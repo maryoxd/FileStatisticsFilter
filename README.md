@@ -1,34 +1,38 @@
-[SK]
-1. Štruktúra projektu <br>
-Projekt File Statistics Filter pozostáva z troch hlavných častí:
-FileStatisticsFilter.CommonLibrary: Class Library, ktorá obsahuje dve hlavné triedy – SearchedFile a SearchedFiles. Tieto triedy poskytujú štruktúru pre reprezentáciu vyhľadaných súborov a ich metadát.
-SearchedFile obsahuje vlastnosti ako názov súboru, veľkosť, dátum vytvorenia/modifikácie, príznak iba na čítanie atď. Poskytuje metódy na export metadát do CSV formátu.
-SearchedFiles slúži ako kolekcia objektov typu SearchedFile, pričom umožňuje načítanie a uloženie súborov do CSV formátu.
-FileStatisticsFilter.SearchConsoleApp: Konzolová aplikácia, ktorá umožňuje vyhľadávať súbory na základe vstupných parametrov zadaných cez príkazový riadok. Aplikácia podporuje rekurzívne prehľadávanie priečinkov a výsledky ukladá do CSV súboru.
-FileStatisticsFilter.WpfApp: Aplikácia s grafickým rozhraním (WPF), ktorá umožňuje načítanie CSV súborov vygenerovaných konzolovou aplikáciou a zobrazenie štatistík o súboroch. Umožňuje filtrovanie súborov podľa priečinka a zobrazovanie detailných štatistík ako počet súborov, veľkosť, a časy vytvorenia/modifikácie.
+# 📂 File Statistics Filter
 
-2. Funkčnosť <br>
-FileStatisticsFilter.CommonLibrary
-Trieda SearchedFile predstavuje metadáta jedného súboru a poskytuje základné vlastnosti súboru ako cesta k priečinku, názov, prípona, veľkosť a dátumy. Okrem toho obsahuje metódy na generovanie riadkov pre CSV export.
-Trieda SearchedFiles reprezentuje kolekciu súborov a poskytuje možnosti načítania zo súborov CSV alebo ich uloženie do CSV. To umožňuje jednoduchú prácu so zoznamami súborov a ich štatistikami.
-FileStatisticsFilter.SearchConsoleApp
-Konzolová aplikácia poskytuje jednoduché rozhranie pre vyhľadávanie súborov. Používateľ zadáva vstupný priečinok, výstupný CSV súbor a voliteľne môže určiť, či sa má prehľadávať rekurzívne.
-Aplikácia spracováva vstupné argumenty a generuje CSV súbor s metadátami o nájdených súboroch.
-V prípade chyby (napr. ak priečinok neexistuje) aplikácia vypíše chybovú hlášku.
-FileStatisticsFilter.WpfApp
-Grafická aplikácia umožňuje používateľovi načítať CSV súbor, ktorý bol vygenerovaný konzolovou aplikáciou, a zobraziť podrobné štatistiky o vyhľadaných súboroch.
-Používateľ môže filtrovať súbory podľa priečinka a zvoliť, či chce zahrnúť aj podpriečinky.
-Zobrazené štatistiky zahŕňajú celkový počet súborov, veľkosť, najstaršie a najnovšie dátumy vytvorenia/modifikácie a počet súborov iba na čítanie.
+**File Statistics Filter** is a **C# and .NET application** developed as part of an **exam project**. It enables users to **search for files, extract metadata, and analyze historical file statistics**. The solution consists of:
+- **Console Application** for file searching and metadata extraction.
+- **WPF Desktop Application** for loading and analyzing CSV-based file statistics.
+- **Class Library** for handling file metadata and data serialization.
 
-3. Príklady použitia <br>
-Konzolová aplikácia: Používateľ spustí aplikáciu cez príkazový riadok a zadá priečinok, v ktorom sa majú vyhľadať súbory.
-WPF aplikácia: Používateľ načíta windows.csv a zobrazí štatistiky o súboroch v rámci zvoleného priečinka.
+## 🔍 Features
+- **Search files in a directory** with optional recursive search.
+- **Extract metadata** such as file size, creation/modification times, and file type.
+- **Export data to CSV** for later analysis.
+- **Load CSV data in WPF** and filter/search results dynamically.
+- **Statistical summary** displaying:
+  - Number of files and directories.
+  - Total file size in human-readable format.
+  - Oldest and newest file creation/modification timestamps.
+  - Count of read-only files.
+  - Distribution of file extensions with total size.
 
-4. Technické riešenia <br>
-Načítavanie a spracovanie súborov: Trieda SearchedFiles je navrhnutá na efektívne spracovanie zoznamu súborov, či už cez FileInfo alebo CSV súbory. Načítané údaje môžu byť uložené do CSV, čo umožňuje jednoduchý export a opätovné načítanie dát.
-Zobrazovanie štatistík: WPF aplikácia využíva komponenty ako ListView a ComboBox na zobrazovanie a filtrovanie štatistík. Umožňuje používateľovi interaktívne získať podrobnosti o súboroch v rôznych priečinkoch.
+## 🛠️ Technologies Used
+- **C# (.NET)**
+- **WPF (Windows Presentation Foundation)**
+- **Console Application**
+- **File Handling & I/O**
+- **CSV Data Processing**
+- **LINQ for Data Filtering**
+- **MVVM Architecture (WPF Application)**
 
-5. Budúce vylepšenia <br>
-Rozšírené možnosti filtrovania: Pridanie pokročilejších filtrov pre typy súborov alebo veľkosti súborov by zvýšilo užitočnosť aplikácie.
-Viacformátový export: Okrem CSV by mohol byť pridaný export do formátov ako XML alebo JSON.
-Optimalizácia pre veľké súbory: V prípade veľmi veľkých súborov by mohla byť zlepšená efektivita načítavania a spracovania.
+## 🚀 How to Run
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/FileStatisticsFilter.git
+   cd FileStatisticsFilter
+2. **Build the solution in Visual Studio (ensure .NET is installed).**
+3. Run the console application to search for files:
+   ```bash
+  FileStatisticsFilter.SearchConsoleApp.exe --input "C:\Windows" --output windows.csv --recursive
+4. **Load the CSV file in the WPF application to analyze file statistics.**
