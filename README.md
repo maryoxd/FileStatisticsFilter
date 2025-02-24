@@ -29,7 +29,7 @@
 ## 🚀 How to Run
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/FileStatisticsFilter.git
+   git clone https://github.com/maryoxd/FileStatisticsFilter.git
    cd FileStatisticsFilter
 2. **Build the solution in Visual Studio (ensure .NET is installed).**
 3. Run the console application to search for files:
