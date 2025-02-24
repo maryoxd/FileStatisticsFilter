@@ -34,5 +34,5 @@
 2. **Build the solution in Visual Studio (ensure .NET is installed).**
 3. Run the console application to search for files:
    ```bash
-  FileStatisticsFilter.SearchConsoleApp.exe --input "C:\Windows" --output windows.csv --recursive
+   FileStatisticsFilter.SearchConsoleApp.exe --input "C:\Windows" --output windows.csv --recursive
 4. **Load the CSV file in the WPF application to analyze file statistics.**
