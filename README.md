@@ -36,3 +36,4 @@
    ```bash
    FileStatisticsFilter.SearchConsoleApp.exe --input "C:\Windows" --output windows.csv --recursive
 4. **Load the CSV file in the WPF application to analyze file statistics.**
+[WPF Screenshot](screens/FSF1.png)
