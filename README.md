@@ -5,6 +5,8 @@
 - **WPF Desktop Application** for loading and analyzing CSV-based file statistics.
 - **Class Library** for handling file metadata and data serialization.
 
+---
+
 ## 🔍 Features
 - **Search files in a directory** with optional recursive search.
 - **Extract metadata** such as file size, creation/modification times, and file type.
@@ -17,6 +19,8 @@
   - Count of read-only files.
   - Distribution of file extensions with total size.
 
+---
+
 ## 🛠️ Technologies Used
 - **C# (.NET)**
 - **WPF (Windows Presentation Foundation)**
@@ -25,17 +29,9 @@
 - **CSV Data Processing**
 - **LINQ for Data Filtering**
 - **MVVM Architecture (WPF Application)**
+- 
+---
 
-## 🚀 How to Run
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/maryoxd/FileStatisticsFilter.git
-   cd FileStatisticsFilter
-2. **Build the solution in Visual Studio (ensure .NET is installed).**
-3. Run the console application to search for files:
-   ```bash
-   FileStatisticsFilter.SearchConsoleApp.exe --input "C:\Windows" --output windows.csv --recursive
-4. **Load the CSV file in the WPF application to analyze file statistics.**
 ## 📸 Screenshots
 Here are some screenshots of the WPF in action:
 ![WPF](screens/FSF1.png)
